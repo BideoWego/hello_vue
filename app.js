@@ -23,6 +23,18 @@ var app = new Vue({
     userInput: 'This message will self reverse when you click the button below!',
     reverseUserInput: function() {
       this.userInput = this.userInput.split('').reverse().join('');
-    }
+    },
+    result: null,
+  },
+  mounted: function() {
+    var self = this;
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(res) {
+        console.log(res);
+        self.result = JSON.stringify(res, null, 2);
+      });
   }
 });
