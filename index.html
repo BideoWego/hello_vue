@@ -13,7 +13,10 @@
   <body>
 
     <div id="app">
+      <page-title
+        v-bind:title="appTitle"></page-title>
       <h1 v-bind:title="appTitleHoverMessage">{{ appTitle }}</h1>
+      <input type="text" v-model="appTitle">
       <p v-if="showMessage">You found me!</p>
       <ul>
         <li v-for="item in items">{{ item }}</li>

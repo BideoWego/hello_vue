@@ -1,3 +1,16 @@
+Vue.component('page-title', {
+  props: ['title'],
+  watch: {
+    title: {
+      immediate: true,
+      handler: function() {
+        document.title = this.title;
+      }
+    }
+  },
+  render: function() {}
+});
+
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
